@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Swap App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎥 AI Video Swap App</h1>
+            <p>Hoán đổi khuôn mặt trong video bằng AI</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-box" id="uploadBox">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h2>Kéo thả video vào đây</h2>
+                    <p>hoặc</p>
+                    <button class="btn-primary" id="selectBtn">Chọn video</button>
+                    <input type="file" id="fileInput" accept=".mp4,.avi,.mov,.mkv,.flv,.wmv" hidden>
+                </div>
+            </section>
+
+            <section class="options-section" id="optionsSection" style="display: none;">
+                <div class="video-info">
+                    <p><strong>File:</strong> <span id="fileName"></span></p>
+                </div>
+
+                <div class="action-selection">
+                    <h3>Chọn hành động:</h3>
+                    <label class="radio-option">
+                        <input type="radio" name="action" value="swap" checked>
+                        <span class="radio-label">
+                            <strong>Hoán đổi khuôn mặt</strong>
+                            <small>Thay thế khuôn mặt trong video</small>
+                        </span>
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="action" value="blur">
+                        <span class="radio-label">
+                            <strong>Làm mờ khuôn mặt</strong>
+                            <small>Làm mờ các khuôn mặt được phát hiện</small>
+                        </span>
+                    </label>
+                </div>
+
+                <button class="btn-process" id="processBtn">🚀 Bắt đầu xử lý</button>
+                <button class="btn-secondary" id="resetBtn">← Chọn video khác</button>
+            </section>
+
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-container">
+                    <h3>Đang xử lý...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">Vui lòng chờ...</p>
+                </div>
+            </section>
+
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-box">
+                    <h3>✅ Xử lý thành công!</h3>
+                    <p id="resultMessage"></p>
+                    <div class="button-group">
+                        <button class="btn-success" id="downloadBtn">📥 Tải xuống video</button>
+                        <button class="btn-secondary" id="newVideoBtn">📤 Upload video khác</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-box">
+                    <h3>❌ Có lỗi xảy ra</h3>
+                    <p id="errorMessage"></p>
+                    <button class="btn-secondary" id="retryBtn">🔄 Thử lại</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 AI Video Swap App | Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
